@@ -1,0 +1,71 @@
+CREATE DATABASE <database_name>;
+SHOW DATABASES;
+USE <database_name>;
+DROP DATABASE <database_name>;
+
+CREATE TABLE <table_name>(<column_name> <data_type>,........);
+SELECT <column_name> FROM <table_name>;
+SELECT * FROM <table_name>;
+DROP TABLE <table_name>;
+TRUNCATE TABLE <table_name>;
+
+CREATE TABLE <table_name>(<column_name> <data_type>,........);
+
+INSERT <table_name> column_name = value, column_name = value;
+
+INSERT INTO <table_name>(<column_name>) VALUE (<column_value>);
+INSERT INTO <table_name> VALUE (<column_value>);
+INSERT INTO <table_name> VALUE (<column_value>), (<column_value>);
+  
+  
+ALTER TABLE <table_name> ADD <column_name> <data_type>;
+ALTER TABLE <table_name> DROP <column_name>;
+ALTER TABLE <table_name> MODIFY <column_name> <data_type>;
+ALTER TABLE <table_name> RENAME <OLD_column_name> to <NEW_column_name>;
+--------------------------------------------
+CREATE DATABASE testingshastra;
+CREATE DATABASE sample;
+CREATE DATABASE test;
+
+USE testingshastra;
+
+CREATE TABLE student(rollno int, name varchar(50), city varchar(50));
+
+SELECT rollno, name, city FROM student;
+
+DROP TABLE student;
+
+INSERT INTO student(rollno, name, city) VALUE (1, 'Vinod', 'Pune');
+
+
+CREATE TABLE <table_name>(<column_name> <data_type> CONSTRAINT); 
+CREATE TABLE student(address varchar(50) DEFAULT 'Pune');
+
+
+------------
+-- CONSTRAINTS --
+
+NOT NULL
+UNIQUE
+PRIMARY KEY
+   
+FOREIGN KEY(<column_name>) REFERENCES <parent_table_name>(<patent_column_name>)
+
+DEFAULT
+AUTO_INCREMENT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
