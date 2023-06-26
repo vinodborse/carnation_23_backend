@@ -21,7 +21,7 @@ INSERT INTO <table_name> VALUE (<column_value>), (<column_value>);
 ALTER TABLE <table_name> ADD <column_name> <data_type>;
 ALTER TABLE <table_name> DROP <column_name>;
 ALTER TABLE <table_name> MODIFY <column_name> <data_type>;
-ALTER TABLE <table_name> RENAME <OLD_column_name> to <NEW_column_name>;
+ALTER TABLE <table_name> RENAME COLUMN <OLD_column_name> to <NEW_column_name>;
 --------------------------------------------
 CREATE DATABASE testingshastra;
 CREATE DATABASE sample;
@@ -53,6 +53,39 @@ FOREIGN KEY(<column_name>) REFERENCES <parent_table_name>(<patent_column_name>)
 
 DEFAULT
 AUTO_INCREMENT
+---------------------------
+
+SELECT * FROM <table_name> WHERE <condition>;
+SELECT * FROM <table_name> WHERE <column_name> = <column_value>;
+
+
+DELETE FROM <table_name> WHERE <condition>;
+
+UPDATE <table_name> SET <column_name> = <new_column_value> WHERE <condition>;
+
+IN
+AND
+OR
+
+LIMIT
+
+ORDER BY <column_name> ASC/DESC;
+
+COUNT()
+MAX()
+MIN()
+AVG()
+
+
+
+id name joining_date dept salary
+
+SELECT AVG(salary) FROM employee WHERE dept = 'IT';
+
+SELECT AVG(salary) FROM employee WHERE dept = 'IT' AND joining_date = 'DEC 2023';
+
+
+
 
 
 
