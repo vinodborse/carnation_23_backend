@@ -84,7 +84,15 @@ SELECT AVG(salary) FROM employee WHERE dept = 'IT';
 
 SELECT AVG(salary) FROM employee WHERE dept = 'IT' AND joining_date = 'DEC 2023';
 
+--------------------------------
 
+JOINS
+
+LEFT JOIN
+RIGHT JOIN
+INNER JOIN / JOIN
+
+SELECT * FROM <parent_table> <JOIN_TYPE> <child_table> ON <child_table>.<foreign_key> = <parent_table>.<primary_key>;
 
 
 
