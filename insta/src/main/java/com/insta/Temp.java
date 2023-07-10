@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/msg")
 public class Temp extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tempName = "Hello Ramu";
+		String tempName = "Hello Aliya";
 		System.out.println(tempName);		
 		request.setAttribute("data", tempName);
 

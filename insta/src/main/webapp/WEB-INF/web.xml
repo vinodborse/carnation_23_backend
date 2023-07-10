@@ -4,6 +4,7 @@
 
 <web-app>
 	<welcome-file-list>
+		<welcome-file>detail.jsp</welcome-file>
 		<welcome-file>sample.html</welcome-file>
 	</welcome-file-list>
 	
@@ -11,10 +12,12 @@
 		<servlet-name>Math</servlet-name>
 		<servlet-class>com.insta.Math</servlet-class>
 	</servlet>
+
 	
 	<servlet-mapping>
 		<servlet-name>Math</servlet-name>
 		<url-pattern>/add</url-pattern>
 	</servlet-mapping>
+
 	
 </web-app>
