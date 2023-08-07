@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean creation using setter -->
+	<bean class="com.carnation.User" name="usr">
+		<property name="userId" value="420"/>
+		<property name="name" value="DON BABA"/>
+		<property name="address" value="FALTU GALI"/>
+	</bean>
+
+<!-- bean creation using constructor -->
+<!--   	
+	<bean class="com.carnation.User" name="usr">
+ 		<constructor-arg value="920" index="0"/>
+ 		<constructor-arg value="SALIM KI GALI" index="2"/>
+ 		<constructor-arg value="ANARKALI" index="1"/>
+ 	</bean>
+ --> 
+ 
+ 	<bean class="com.carnation.Teacher" name="te"/>
+ 	<bean class="com.carnation.Student" name="std"/>
+ 
+ 
+ 
+</beans>
