@@ -1,0 +1,121 @@
+
+
+
+controller 
+mapping
+
+
+session.get(User.class, 12);
+
+SELECT * FROM user WHERE name = "";
+
+findById(id);
+findByName(String name);
+findByAddress(String add);
+findByNameAndAddress(String name, String address); ---> SELECT * FROM user WHERE name ="" AND address = "";
+
+findByType(String type) ---->   SELECT * FROM todo WHERE type = "";
+
+
+@Entity
+class Todo {
+
+	@Id
+	private Long id;
+	private String name;
+	private String type;
+	private Date date;
+	private Date time;
+	private String desc;
+	private Boolean isComplete;
+	
+	getter/setter
+	const()
+}
+
+
+
+
+@RestController
+class TodoController {
+
+	@Autowired
+	TodoService todoService;
+
+	@PostMapping("/save-todo")
+	public Todo saveTodo(@RequestBody Todo todo) {	
+		return todoService.saveTodo(todo);
+	}
+
+	@GetMapping("/get-todo/{todo}")
+	public Todo getTodoUsingType(@PathVariable("todo") String type) {
+		return todoService.getTodoUsingType(type);
+	}
+
+}
+
+
+@Service
+class TodoService {
+
+	@Autowired
+	TodoRepository todoRepository;
+	
+	public Todo saveTodo(Todo todo) {
+		return todoRepository.save(todo);
+	}
+	
+	
+	public Todo getTodoUsingType(String type) {
+		return todoRepository.findByType(type);
+	}
+	
+}
+
+@Repository
+interface TodoRepository extends  JpaRepository<Todo, Long> {
+
+	Todo findByType(String type);
+}
+
+
+
+C ---> CREATE  ----->  INSERT   ---->   POST-MAPPING
+R ---> READ    ----->  SELECT   ---->   GET-MAPPING
+U ---> UPDATE  ----->  UPDATE   ---->   PUT-MAPPING
+D ---> DELETE  ----->  DELETE   ---->   DELETE-MAPPING
+
+
+
+
+
+
+Controllers
+	UserController
+			GET:- get-user-by-name/{name}
+			GET:- get-user/{address}
+			GET:- get-user/ {5}
+			GET:- get-all-users
+		POST:- save-user
+		PUT:-  update-user/{7}
+		PUT:-  ......
+		DELETE:- delete-user/{8}
+		
+	EmployeeController
+			GET:- get-emp
+		POST:- save-emp
+		PUT:-  update-emp
+		DELETE:- delete-emp
+	
+	TodoController
+			GET:- get-todo/{type}
+			GET:- get-todo/{date}
+		
+		POST:- save-todo
+		POST:- save-all-todo
+		
+		PUT:- update-todo/{8}
+		PUT:- update-todo/{type}
+		
+		DELETE:- delete-todo/{id}
+		DELETE:- delete-todo/ {type}
