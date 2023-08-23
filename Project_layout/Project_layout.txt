@@ -1,0 +1,183 @@
+
+@Entity
+Movie {
+	@Id
+	@GeneratedValue(...)
+	private Long id,
+	private String name,
+	private String type,
+	private String description,
+//	private List<String> cast,
+	private Date release_date,
+	private int seat_available,
+	private int price,
+//	private blob image,
+//	private boolean isReleased
+}
+
+
+Backend
+
+
+------------------------------------------
+com.carnation.model
+	Movie.java
+	
+com.carnation.controller
+	MovieController.java
+
+com.carnation.service
+	MovieService.java
+	
+com.carnation.dao
+	MovieRepository.java  (interface)
+	
+--------------------------------------------
+
+@RestController
+class MovieController {
+	
+	@Autowired
+	MovieService ms;
+	
+	@PostMapping("/save-movie")
+	public Movie saveMovieDetail(@RequestBody Movie movie) {
+		Movie m = ms.saveMovieDetail(movie);
+		return m;
+	}
+	
+	@GetMapping("/get-all-movies")
+	public List<Movie> getAllMovies() {
+		List<Movie> movies = ms.getAllMovies();
+		return movies;
+	}
+}
+
+	
+@Service	
+class MovieService {
+
+	@Autowired
+	MovieRepository movieRepo;
+
+	public Movie saveMovieDetail(Movie movie) {
+		Movie m = movieRepo.save(movie);
+		return m;
+	}
+	
+	
+	public List<Movie> getAllMovies() {
+		List<Movie> movies = movieRepo.findAll();
+		return movies;
+	}
+
+}	
+	
+
+@Repository	
+interface MovieRepository extends JpaRepository<Movie, Long> {
+
+}
+	
+	
+	
+	
+	
+=============================== UI ===================
+movie.html
+	
+	<button id='search-all-btn'>Search All</button>
+
+	<div id='movies-list'></div>
+
+
+movie.js
+
+	$('#search-all-btn').click(function() {
+		
+		saveMovie();
+	})
+	
+	
+	
+	async function saveMovie() {
+		const url ='http:///localhost:8080/get-all-movies'
+	
+			const resultData = await fetch(url, {method: 'GET'});
+			
+			const finalData = await resultData.json();
+			
+			console.log(finalData);
+			
+	}
+
+
+movie.css
+
+
+
+
+A
+
+	B
+
+		C
+
+			D
+
+
+
+	await A
+
+	B
+
+	C
+
+	D
+
+
+
+	const resultData = await fetch(url, {method: 'GET'});
+
+	const postData = {
+						"firstName": "Pappu",
+						"lastName": "Kaka",
+						"address": "Surat",
+						"dept": "Full-Stack"
+					}
+	
+	
+	const resultData = await fetch(
+									url, 
+									{
+										method: 'PUT', 
+										body: postData.JsonString()});
+
+	const url = 'http://localhost:8080/delete-movie?id=' + id;
+	fetch(url, {method: 'DELETE'})
+
+
+
+
+add(int a, int b, int c)
+add(1, 4, 7)
+
+fetch(string url, Object obj)
+fetch("http://localhost:8080/add-user", {method: 'GET/POST/PUT/DELETE', body: {
+    "firstName": "Ramu",
+    "lastName": "Kaka",
+    "address": "Surat",
+    "dept": "Full-Stack"
+}})
+
+const vinod = "http://localhost:8080/add-user"
+
+const userData = {
+					"firstName": "Ramu",
+					"lastName": "Kaka",
+					"address": "Surat",
+					"dept": "Full-Stack"
+   				 }
+
+
+fetch(vinod, {method: 'POST', body: userData})
