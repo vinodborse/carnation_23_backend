@@ -34,4 +34,13 @@ public class UserService {
 	public List<User> getUserByName(String name) {
 		return userRepository.findByName(name);
 	}
+	
+	
+	public List<User> getAllUsers() {
+		return userRepository.findAll();
+	}
+
+	public List<User> findByNameOrAddressOrPassword(String data) {
+		return userRepository.findByNameOrAddressOrPassword(data, data, data);
+	}
 }
